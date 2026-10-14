@@ -5,12 +5,17 @@ primary_target: "design-c/index.html"
 related_targets: []
 ---
 
-Scope: DESIGN C "SOFT POP" (replaces the rejected editorial C, 2026-10-14). Persuade surface for first-timers and students; action: LINE reservation. Mobile is the primary viewport.
+Scope: DESIGN C "HOTEL SPA". It replaces SOFT POP, which the client found too childish; requested 2026-10-14. Persuade surface. Action: LINE reservation. Primary viewport: mobile.
 
 ## Direction contract
-THESIS: A friendly scrapbook page that makes a first hair-removal visit feel easy. It refuses the cold clinic look and the beige-luxury default.
-OWN-WORLD: Milk #FFF8F1 ground with peach #FFE1D3, butter #FFE8A3 and apricot #F4A07F fields. Cocoa #4A3530 ink; apricot-ink #B4532F for text accents. Zen Maru Gothic 900/500 with Fredoka for Latin and numerals. Pills, arches, round blobs, washi-tape strips, ticket notches, hand-drawn underline and sparkles. Unsplash placeholder photos labelled 仮の写真.
-STORY: Hero promise → concept → owner letter → three commitments → price ticket (student row highlighted) → equipment → review carousel → steps → chat FAQ → access → LINE.
-FIRST VIEWPORT (390px): Badge row, a two-line rounded headline 「自分を好きになる、はじめの一歩。」 with an apricot squiggle, subcopy, and a LINE pill CTA. The arch photo with the butter sticker follows; on desktop it sits to the right.
-FORM: Split hero → sticker-scrapbook sections. Signature interaction: PEEL THE STICKER. The sticker has a lifted edge; dragging folds it along the perpendicular bisector in real time, while the blobs and arch respond. Past the threshold the sticker flies off, revealing ひみつ、みーつけた。 with confetti, then the pop secret card. Closing re-sticks it. seed: none (brief-pinned by client choice; no concept roll)
+THESIS: Hair removal as a quiet hotel-spa ritual, 自分を慈しむ、上質なひととき。It refuses the cute pop look and the clinical look.
+OWN-WORLD:
+- Colour: ivory #FAF7F2, white and linen #EFE9E0 fields. Champagne #C9A96E is used only for hairlines and ornaments; gold-ink #806230 for gold text. Charcoal #2B2622 for ink and buttons.
+- Type: Noto Serif JP 300/500 and Marcellus, with Noto Sans JP 300 body.
+- Details: framed photos with an inset gold hairline, double-rule cards, a hotel-menu price list with dotted leaders, square buttons, and a small diamond ornament before each heading. Unsplash placeholder photos are labelled 仮の写真.
+STORY: hero promise → concept → framed photo duo → owner letter (equipment line folded in) → three commitments → menu → reviews carousel → steps → chat FAQ → access → reservation on gold-veined marble.
+FIRST VIEWPORT (390px): framed spa-room photo with a gold foil seal (monogram X) on its lower edge, then ornament, headline, sub and LINE CTA. On desktop the photo sits on the right half and the seal straddles its left edge.
+FORM: Photographic hero → centred hotel-menu sections.
+Signature interaction: PEEL THE SEAL. The fold follows the drag in real time and the photo eases closer. At the threshold the seal lifts off, revealing ひみつを、ひとつ。 with rising gold dust and a warm glow, followed by an invitation-style secret card. Closing re-seals it.
+seed: none (brief-pinned by client choice; no concept roll)
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

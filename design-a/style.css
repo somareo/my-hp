@@ -213,9 +213,6 @@ p { margin: 0 0 1em; }
 .price__row dd { margin: 0; font: 400 30px/1 var(--serif-en); letter-spacing: .04em; }
 .price__row dd small { font: 400 13px var(--sans); margin-left: .2em; }
 
-/* EQUIPMENT */
-.equip__text { text-align: center; }
-
 /* REVIEWS */
 .reviews { background: var(--white); }
 .reviews__note { text-align: center; font-size: 12px; color: var(--muted); margin: -36px 0 40px; }

@@ -19,4 +19,7 @@
 | tubes-white.webp | https://images.unsplash.com/photo-1711779187608-3073012b4d0a | 白い台に置いた白いチューブ |
 | lavender.webp | https://images.unsplash.com/photo-1634304387535-e9b7ed3180d4 | 白い背景のラベンダーの束 |
 | towels-white.webp | https://images.unsplash.com/photo-1760722974657-f64bce2f9cc5 | 重ねた白いタオル |
-| towels-rolled.webp | https://images.unsplash.com/photo-1787168295699-03aed18d17d4 | 丸めた白いタオル |
+| spa-room.webp | https://unsplash.com/photos/7zFA（photo-1737352777897-e22953991a32） | 格子窓と施術ベッドのあるスパルーム |
+| robe-tea.webp | https://images.unsplash.com/photo-1630595271375-5073a6c0638b | バスローブでお茶を飲む女性 |
+| towels-shelf.webp | https://unsplash.com/photos/3Sz45ULJmUE | 木の棚に置いた白いタオル |
+| marble-gold.webp | https://unsplash.com/photos/lkpek6r6yOQ | 金のラインが入った白い大理石 |

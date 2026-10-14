@@ -225,9 +225,6 @@ p { margin: 0 0 1em; }
 .price__row dd { margin: 14px 0 0; font: 200 34px/1 var(--en); letter-spacing: .04em; }
 .price__row dd small { font: 300 13px var(--ja); margin-left: .2em; }
 
-/* EQUIPMENT */
-.equip__text { text-align: center; }
-
 /* REVIEWS */
 .reviews__note { text-align: center; font-size: 12px; color: var(--muted); margin: -32px 0 44px; }
 .reviews__list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; outline-offset: 4px; }

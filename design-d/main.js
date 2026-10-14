@@ -10,14 +10,11 @@
   list($('[data-owner-body]'), X.owner.body, (p) => `<p data-reveal>${nl(p)}</p>`);
   list($('[data-features]'), X.features, (f) => `
     <li class="feature" data-reveal>
-      <p class="feature__en" lang="en" data-drift>${esc(f.en)}</p>
-      <div>
-        <h3 class="feature__title">${esc(f.title)}</h3>
-        <p class="feature__body">${esc(f.body)}</p>
-      </div>
+      <h3 class="feature__title">${esc(f.title)}</h3>
+      <p class="feature__body">${esc(f.body)}</p>
     </li>`);
   list($('[data-price]'), X.price.items, (p) => `
-    <div class="price__row"><dt>${esc(p.label)}<span>${esc(p.en)}</span></dt><dd>${yen(p.price)}<small>円</small></dd></div>`);
+    <div class="price__row"><dt>${esc(p.label)}</dt><dd>${yen(p.price)}<small>円</small></dd></div>`);
   list($('[data-flow]'), X.flow, (f) => `
     <li class="flow__item" data-reveal>
       <span class="flow__no" aria-hidden="true"><span>${Number(f.no)}</span></span>

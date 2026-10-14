@@ -14,32 +14,26 @@
   list($('[data-features]'), X.features, (f, i) => `
     <li class="feature" data-reveal>
       <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24">${ICONS[i % ICONS.length]}</svg></span>
-      <div>
-        <h3 class="feature__title">${esc(f.title)}</h3>
-        <p class="feature__body">${esc(f.body)}</p>
-      </div>
+      <h3 class="feature__title">${esc(f.title)}</h3>
+      <p class="feature__body">${esc(f.body)}</p>
     </li>`);
   list($('[data-price]'), X.price.items, (p) => `
-    <div class="price__row"><dt>${esc(p.label)}<span>${esc(p.en)}</span></dt><dd>${yen(p.price)}<small>円</small></dd></div>`);
+    <div class="price__row"><dt>${esc(p.label)}</dt><dd>${yen(p.price)}<small>円</small></dd></div>`);
   list($('[data-flow]'), X.flow, (f) => `
     <li class="flow__item" data-reveal>
       <span class="flow__no" aria-hidden="true">${Number(f.no)}</span>
-      <div>
-        <h3 class="flow__title"><span class="sr-only">STEP ${esc(f.no)}　</span>${esc(f.title)}</h3>
-        <p class="flow__body">${esc(f.body)}</p>
-      </div>
+      <h3 class="flow__title"><span class="sr-only">STEP ${esc(f.no)}　</span>${esc(f.title)}</h3>
+      <p class="flow__body">${esc(f.body)}</p>
     </li>`);
   window.XUI.chat($('[data-faq]'));
   window.XUI.carousel($('[data-rv]'));
 
-  /* ---------- ヒーローのまるい模様：ゆっくり漂う ---------- */
-  const blobs = $$('[data-blob]');
-  const blobState = blobs.map(() => ({ x: 0, y: 0, s: 1 }));
 
   /* ---------- 隠しギミック：シールをはがす ---------- */
   const hero = $('#hero');
   const visual = $('[data-visual]');
-  const arch = $('.arch');
+  const photoImg = $('.hero__photo img');
+  const mqWide = window.matchMedia('(min-width: 768px)');
   const stk = $('[data-stk]');
   const front = $('[data-stk-front]');
   const flapclip = $('[data-stk-flapclip]');
@@ -48,7 +42,6 @@
   const peek = $('[data-peek]');
   const confetti = $('[data-confetti]');
 
-  const ANGLE = -35 * Math.PI / 180; // めくれている端（右上）
   const P = {
     state: 'idle', // idle | drag | auto | gone
     q: { x: 0, y: 0 }, // めくった端がいまある位置（シール内の座標）
@@ -58,6 +51,8 @@
   let S = 120, r = 60, C0 = { x: 0, y: 0 }, uIn = { x: 0, y: 0 };
 
   function measure() {
+    // めくれている端：スマホは左上（写真の内側）、広い画面は右上
+    const ANGLE = (mqWide.matches ? -40 : -140) * Math.PI / 180;
     S = stk.offsetWidth;
     r = S / 2;
     C0 = { x: r + r * Math.cos(ANGLE), y: r + r * Math.sin(ANGLE) };
@@ -127,7 +122,7 @@
     P.state = 'idle';
     // 途中で離すと、ぺたっと元に戻る
     const to = restQ(P.lift);
-    gsap.to(P.q, { x: to.x, y: to.y, duration: reduced ? 0.2 : 0.6, ease: 'back.out(1.6)' });
+    gsap.to(P.q, { x: to.x, y: to.y, duration: reduced ? 0.2 : 0.7, ease: 'power3.out' });
   };
   hit.addEventListener('pointerup', endDrag);
   hit.addEventListener('pointercancel', endDrag);
@@ -160,42 +155,43 @@
     visual.appendChild(fly);
     stk.classList.add('is-gone');
     gsap.to(fly, {
-      x: P.dir.x * -40 - 60, y: -220, rotation: -420, scale: 0.4, opacity: 0,
-      duration: reduced ? 0.3 : 1.1, ease: 'power2.in', onComplete: () => fly.remove()
+      x: P.dir.x * -60, y: -180, rotation: -200, scale: 0.6, opacity: 0,
+      duration: reduced ? 0.3 : 1.3, ease: 'power2.in', onComplete: () => fly.remove()
     });
-    gsap.fromTo(peek, { scale: 0.85 }, { scale: 1, duration: 0.6, ease: 'back.out(2.4)' });
+    gsap.fromTo(peek, { opacity: 0.4 }, { opacity: 1, duration: 1.2, ease: 'power2.out' });
     if (!reduced) burst();
     gsap.delayedCall(reduced ? 0.4 : 1.3, showCard);
   }
 
-  // 紙吹雪（やわらかな丸と四角）
+  // 金の粒がきらめきながら舞い上がる
   function burst() {
-    const colors = ['#F4A07F', '#FFE8A3', '#FFD0BD', '#4A3530', '#FFFFFF'];
+    const colors = ['#F3E3BC', '#C9A96E', '#E9D3A2', '#A5844C', '#FFFFFF'];
     const cx = stk.offsetLeft + r, cy = stk.offsetTop + r;
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 26; i++) {
       const el = document.createElement('i');
-      const size = 6 + Math.random() * 8;
-      el.style.cssText = `width:${size}px;height:${size * (Math.random() < 0.5 ? 1 : 0.5)}px;background:${colors[i % colors.length]};border-radius:${Math.random() < 0.6 ? '50%' : '3px'};`;
+      const size = 2 + Math.random() * 4;
+      el.style.cssText = `width:${size}px;height:${size}px;background:${colors[i % colors.length]};box-shadow:0 0 ${size * 2}px rgba(233,211,162,.9);`;
       confetti.appendChild(el);
-      const a = Math.random() * Math.PI * 2, v = 80 + Math.random() * 140;
-      gsap.set(el, { x: cx, y: cy });
+      const a = Math.random() * Math.PI * 2, v = 30 + Math.random() * 110;
+      gsap.set(el, { x: cx, y: cy, opacity: 0 });
       gsap.timeline({ onComplete: () => el.remove() })
-        .to(el, { x: cx + Math.cos(a) * v, y: cy + Math.sin(a) * v - 60, rotation: Math.random() * 360, duration: 0.6, ease: 'power2.out' })
-        .to(el, { y: `+=${120 + Math.random() * 120}`, opacity: 0, duration: 1.1, ease: 'power1.in' });
+        .to(el, { opacity: 1, duration: 0.2 })
+        .to(el, { x: cx + Math.cos(a) * v, y: cy + Math.sin(a) * v * 0.6 - 90 - Math.random() * 80, duration: 1.6 + Math.random() * 0.8, ease: 'power2.out' }, 0)
+        .to(el, { opacity: 0, duration: 0.8 }, '-=0.8');
     }
   }
 
   function showCard() {
     secret.hidden = false;
     if (reduced) gsap.fromTo(card, { opacity: 0 }, { opacity: 1, duration: 0.3 });
-    else gsap.fromTo(card, { scale: 0.6, rotation: -10, opacity: 0 }, { scale: 1, rotation: -2, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' });
+    else gsap.fromTo(card, { y: 30, opacity: 0, filter: 'blur(6px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.1, ease: 'expo.out' });
     closeBtn.focus({ preventScroll: true });
   }
 
   function closeSecret() {
     if (secret.hidden) return;
     gsap.to(card, {
-      scale: 0.85, opacity: 0, duration: reduced ? 0.2 : 0.35, ease: 'power2.in',
+      y: 16, opacity: 0, duration: reduced ? 0.2 : 0.4, ease: 'power2.in',
       onComplete: () => { secret.hidden = true; reset(); }
     });
   }
@@ -210,8 +206,8 @@
     P.q = { x: to.x, y: to.y };
     render(P.q);
     stk.classList.remove('is-gone');
-    gsap.fromTo(stk, { y: -160, rotation: 24, scale: 1.25, opacity: 0 },
-      { y: 0, rotation: 0, scale: 1, opacity: 1, duration: reduced ? 0.2 : 0.7, ease: 'back.out(1.4)', clearProps: 'transform,opacity',
+    gsap.fromTo(stk, { y: -60, rotation: 18, scale: 1.12, opacity: 0 },
+      { y: 0, rotation: 0, scale: 1, opacity: 1, duration: reduced ? 0.2 : 0.9, ease: 'power3.out', clearProps: 'transform,opacity',
         onComplete: () => { P.state = 'idle'; if (P.keyboard) hit.focus({ preventScroll: true }); } });
   }
 
@@ -230,19 +226,11 @@
   function loop(now) {
     requestAnimationFrame(loop);
     if (!visible || document.hidden) return;
-    const time = (now - start) / 1000;
     if (P.state === 'idle' && !gsap.isTweening(P.q)) P.q = restQ(P.lift);
     if (P.state !== 'gone') render(P.q);
     const pull = P.state === 'drag' || P.state === 'auto' ? Math.min(1, P.progress) : 0;
-    // まるい模様：めくる力に引っぱられるように動く
-    blobs.forEach((b, i) => {
-      const s = blobState[i];
-      const drift = reduced ? 0 : Math.sin(time * 0.5 + i * 2) * 6;
-      const tx = P.dir.x * pull * (18 + i * 10), ty = P.dir.y * pull * (18 + i * 10) + drift;
-      s.x += (tx - s.x) * 0.12; s.y += (ty - s.y) * 0.12; s.s += (1 + pull * 0.14 - s.s) * 0.12;
-      b.style.transform = `translate(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px) scale(${s.s.toFixed(3)})`;
-    });
-    arch.style.rotate = `${(pull * 2.2 * (P.dir.x < 0 ? 1 : -1)).toFixed(2)}deg`;
+    // めくる力に合わせて、写真がわずかに寄る
+    photoImg.style.scale = (1 + pull * 0.035).toFixed(4);
     if ((P.state === 'drag' || P.state === 'auto') && P.progress >= 1.08) release();
   }
 
@@ -257,6 +245,8 @@
   window.addEventListener('resize', () => {
     clearTimeout(rt);
     rt = setTimeout(() => { measure(); if (P.state === 'idle') { P.q = restQ(P.lift); render(P.q); } }, 150);
+  });
+  mqWide.addEventListener('change', () => { measure(); if (P.state === 'idle') { P.q = restQ(P.lift); render(P.q); }
   });
 
   // ヘッダー：スクロールしたら少しだけ影を濃く

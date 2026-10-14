@@ -1,6 +1,17 @@
 [
   {
     "date": "2026-10-14",
+    "macrostructure": "Photographic",
+    "theme": "custom",
+    "theme_axes": "light / classical-serif / neutral-warm (champagne gold)",
+    "vibe": "hotel spa: white linen, champagne gold hairlines, quiet",
+    "enrichment": "Unsplash placeholder photos + SVG gold foil seal",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "brief": "Salon Xavil · Design C HOTEL SPA (replaces SOFT POP)"
+  },
+  {
+    "date": "2026-10-14",
     "macrostructure": "Split hero → scrapbook",
     "theme": "custom",
     "theme_axes": "light / rounded-sans / warm (apricot)",

@@ -1,7 +1,7 @@
 /* Hallmark · genre: editorial · macrostructure: Marquee Hero → Split spreads (layout of Design C)
  * theme: custom palette swap (Design A colours: white / ivory #F8F7F3 / warm beige #D5C6B8 / soft brown #51443D)
  * display: Archivo (wide, 800) + Zen Old Mincho (900) · body: Murecho · nav: N9 edge-aligned · footer: Ft5 statement
- * DESIGN D — UNLOCK YOURSELF × PURE & TRUST
+ * DESIGN D — EDITORIAL × PURE & TRUST
  */
 :root {
   /* palette（仕様書で指定された5色＋派生色） */
@@ -191,7 +191,7 @@ html { scrollbar-color: var(--teal) var(--paper); }
 .hero__tag-tilt {
   display: inline-block; padding: 10px 14px; rotate: -6deg;
   background: var(--paper); color: var(--teal); box-shadow: inset 0 0 0 1.5px var(--teal);
-  font: 700 12px/1 var(--display); font-variation-settings: 'wdth' 112; letter-spacing: .12em; text-transform: uppercase;
+  font: 700 13px/1 var(--sans); letter-spacing: .08em;
 }
 /* 組み替え後：写真とタグが反対側へ移る */
 .hero.is-free .hero__insert { right: auto; left: var(--gutter); top: clamp(88px, 11vh, 120px); width: clamp(180px, 21vw, 330px); }
@@ -243,9 +243,10 @@ html { scrollbar-color: var(--teal) var(--paper); }
 .hero.is-free .thread__hit { visibility: hidden; }
 
 /* CONCEPT */
-.concept__grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: end; }
+.concept { padding-bottom: clamp(56px, 7vw, 96px); }
+.concept__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
 .concept__title {
-  margin: 0; font: 900 clamp(40px, 7.4vw, 104px)/1.18 var(--mincho);
+  margin: 0; font: 900 clamp(30px, 4.6vw, 64px)/1.4 var(--mincho);
   letter-spacing: .01em; color: var(--teal); text-wrap: balance;
 }
 .concept__body { margin: 0; max-width: 34em; line-height: 2.25; }
@@ -266,16 +267,10 @@ html { scrollbar-color: var(--teal) var(--paper); }
 .features { overflow: clip; }
 .features__list { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--teal); }
 .feature {
-  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px clamp(24px, 5vw, 80px);
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 12px clamp(24px, 5vw, 80px); align-items: baseline;
   padding: clamp(28px, 4vw, 52px) 0; border-bottom: 1px solid var(--rule);
 }
-.feature > div { grid-column: 2; }
-.feature__en {
-  margin: 0 calc(var(--gutter) * -1) 0 0; font: 800 clamp(40px, 13.2vw, 230px)/.92 var(--display);
-  font-variation-settings: 'wdth' 112; letter-spacing: -.03em; color: var(--teal); text-transform: uppercase;
-  grid-column: 1 / -1; white-space: nowrap;
-}
-.feature__title { margin: 0 0 10px; font: 900 clamp(19px, 1.8vw, 24px)/1.6 var(--mincho); color: var(--ink); }
+.feature__title { margin: 0; font: 900 clamp(20px, 2.3vw, 32px)/1.5 var(--mincho); color: var(--teal); }
 .feature__body { margin: 0; max-width: 30em; }
 
 /* PRICE */
@@ -297,17 +292,11 @@ html { scrollbar-color: var(--teal) var(--paper); }
 .price__list { margin: 0; border-top: 1.5px solid var(--teal); }
 .price__row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
 .price__row dt { font-weight: 700; }
-.price__row dt span { display: block; font: 600 11px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 .price__row dd {
   margin: 0; font: 800 clamp(34px, 3.8vw, 52px)/1 var(--display); font-variation-settings: 'wdth' 104;
   font-variant-numeric: tabular-nums lining-nums; letter-spacing: -.02em; color: var(--teal);
 }
 .price__row dd small { font: 700 14px var(--sans); margin-left: .25em; letter-spacing: .04em; }
-
-/* EQUIPMENT */
-.equip__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: end; }
-.equip__title { margin: 0; font: 900 clamp(34px, 5.6vw, 80px)/1.3 var(--mincho); color: var(--teal); }
-.equip__body { margin: 0; max-width: 30em; }
 
 /* REVIEWS：カルーセル（1件ずつ大きく。次の1件が少し見える） */
 .reviews { border-top: 1.5px solid var(--teal); overflow: clip; }
@@ -391,13 +380,8 @@ html { scrollbar-color: var(--teal) var(--paper); }
 
 /* RESERVATION */
 .reserve { background: var(--coral); color: var(--ink); padding-block: clamp(96px, 12vw, 160px); overflow: hidden; }
-.reserve__big {
-  margin: 0 0 clamp(32px, 5vw, 64px);
-  font: 800 clamp(48px, 12.4vw, 220px)/.84 var(--display); letter-spacing: -.04em; color: var(--teal);
-  white-space: nowrap;
-}
-.reserve__body { display: grid; gap: 4px; justify-items: start; max-width: 640px; margin-left: auto; }
-.reserve__title { margin: 0 0 16px; font: 900 clamp(26px, 3.4vw, 44px)/1.45 var(--mincho); }
+.reserve__body { display: grid; gap: 4px; justify-items: center; max-width: 720px; margin: 0 auto; text-align: center; }
+.reserve__title { margin: 0 0 16px; font: 900 clamp(30px, 4.4vw, 56px)/1.45 var(--mincho); }
 .reserve .btn { margin-top: 16px; }
 
 /* FOOTER */
@@ -472,13 +456,11 @@ html { scrollbar-color: var(--teal) var(--paper); }
   .hero__foot { display: block; }
   .hero__sub { margin-bottom: 20px; font-size: 14px; }
   .hero__btns .btn { flex: 1 1 100%; }
-  .concept__grid, .owner__grid, .price__grid, .equip__grid, .faq__grid, .access__grid { grid-template-columns: minmax(0, 1fr); }
+  .concept__grid, .owner__grid, .price__grid, .faq__grid, .access__grid { grid-template-columns: minmax(0, 1fr); }
   .owner__title, .faq__head { position: static; }
   .owner__title { margin-bottom: 36px; }
   .feature { grid-template-columns: minmax(0, 1fr); }
-  .feature > div { grid-column: 1; }
-  .feature__en { font-size: clamp(36px, 12vw, 56px); white-space: normal; overflow-wrap: anywhere; }
-  .price__card { rotate: -1deg; }
+    .price__card { rotate: -1deg; }
   .hero__insert .ph-label { top: 8px; bottom: auto; }
   .rv__track { grid-auto-columns: 86%; gap: 14px; }
   .rv__slide { padding: 52px 22px 24px; }
@@ -489,7 +471,6 @@ html { scrollbar-color: var(--teal) var(--paper); }
   .flow__no { font-size: 64px; margin-bottom: 10px; }
   .access__map { outline-offset: 6px; margin: 6px; }
   .access__info { grid-template-columns: 5em minmax(0, 1fr); }
-  .reserve__body { margin-left: 0; }
   .footer { padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px)); }
   .fixed-cta {
     display: flex; align-items: center; justify-content: center; gap: .7em;
