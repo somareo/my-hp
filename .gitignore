@@ -1,2 +1,4 @@
 .DS_Store
 .vscode/
+.impeccable/review/
+.impeccable/*.local.json

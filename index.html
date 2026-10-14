@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ja" data-root="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salon Xavil — Design Proposals</title>
+<meta name="description" content="Salon Xavil 公式ホームページの4つのデザイン案の比較ページです。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/common.css">
+<style>
+  :root {
+    --bg: #F2F1EE;
+    --surface: #FFFFFF;
+    --ink: #1E2120;
+    --muted: #5C6261;
+    --rule: rgba(30, 33, 32, .14);
+    --focus: #164A46;
+    --display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --sans: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    --gutter: clamp(16px, 4vw, 56px);
+    --ease-out: cubic-bezier(.16, 1, .3, 1);
+  }
+  html, body { overflow-x: clip; }
+  body { background: var(--bg); color: var(--ink); font: 400 15px/1.9 var(--sans); letter-spacing: .03em; }
+  ::selection { background: #1E2120; color: #fff; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .wrap { width: min(1360px, 100%); margin: 0 auto; padding-inline: var(--gutter); }
+
+  .top { padding: clamp(56px, 9vw, 120px) 0 clamp(40px, 6vw, 72px); }
+  .top__title {
+    margin: 0 0 18px;
+    font: 700 clamp(28px, 4.6vw, 60px)/1.15 var(--sans);
+    letter-spacing: .01em;
+  }
+  .top__title span { color: var(--muted); font-weight: 500; }
+  .top__sub { margin: 0; font-size: clamp(16px, 1.6vw, 20px); font-weight: 500; }
+  .top__note { margin: 28px 0 0; max-width: 46em; font-size: 13px; color: var(--muted); }
+
+  .cards { list-style: none; margin: 0; padding: 0 0 clamp(72px, 10vw, 140px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+  .card { display: flex; flex-direction: column; background: var(--surface); }
+  .card__preview {
+    position: relative; display: block; aspect-ratio: 16 / 11; overflow: hidden;
+    background: var(--c-bg); border-bottom: 1px solid var(--rule);
+  }
+  .card__preview iframe {
+    position: absolute; left: 0; top: 0; width: 1440px; height: 990px; border: 0;
+    transform-origin: 0 0; transform: scale(var(--s, .3)); pointer-events: none;
+  }
+  .card__preview::after { content: ''; position: absolute; inset: 0; transition: background-color .3s; }
+  .card__preview:hover::after { background: rgba(0, 0, 0, .04); }
+  .card__body { display: flex; flex-direction: column; flex: 1; padding: clamp(22px, 2.4vw, 32px); }
+  .card__id { margin: 0 0 6px; font: 700 12px/1 var(--display); letter-spacing: .2em; color: var(--muted); }
+  .card__name { margin: 0 0 6px; font: 700 clamp(20px, 2vw, 26px)/1.2 var(--sans); letter-spacing: .04em; }
+  .card__copy { margin: 0 0 14px; font-size: 16px; font-weight: 700; }
+  .card__concept { margin: 0 0 20px; font-size: 14px; color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 20px; padding: 0; list-style: none; }
+  .chip { display: flex; align-items: center; gap: 6px; font: 500 11px/1 var(--display); letter-spacing: .04em; color: var(--muted); }
+  .chip i { width: 22px; height: 22px; border-radius: 50%; background: var(--sw); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); }
+  .feats { margin: 0 0 24px; padding: 0; list-style: none; border-top: 1px solid var(--rule); font-size: 13px; }
+  .feats li { padding: 9px 0; border-bottom: 1px solid var(--rule); }
+  .feats li strong { font-weight: 700; }
+  .card__btn {
+    margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    min-height: 54px; padding: 0 20px; background: var(--ink); color: #fff;
+    font: 700 14px/1 var(--sans); letter-spacing: .08em; text-decoration: none;
+    transition: background-color .25s var(--ease-out);
+  }
+  .card__btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; transition: translate .25s var(--ease-out); }
+  .card__btn:hover { background: var(--c-accent); }
+  .card__btn:hover svg { translate: 4px 0; }
+
+  .foot { padding: 28px 0 48px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--muted); }
+  .foot a { color: inherit; }
+
+  @media (max-width: 1024px) {
+    .cards { grid-template-columns: minmax(0, 1fr); max-width: 680px; }
+  }
+</style>
+</head>
+<body data-page="proposals">
+
+<main>
+  <header class="top wrap">
+    <h1 class="top__title">SALON XAVIL <span>— DESIGN PROPOSALS</span></h1>
+    <p class="top__sub">4つのデザインから、理想のSalon Xavilを。</p>
+    <p class="top__note">各デザインは実際に操作できるモックです。店舗写真・オーナー様の文章・よくあるご質問の一部の回答は仮の内容で、ご確認いただいた後に差し替えます。料金・住所・LINE予約先は全案共通で、確定情報を掲載しています。</p>
+  </header>
+
+  <ol class="cards wrap">
+    <li class="card" style="--c-bg:#F8F7F3; --c-accent:#51443D;">
+      <a class="card__preview" href="design-a/" tabindex="-1" aria-hidden="true">
+        <iframe src="design-a/" title="デザインAのプレビュー" loading="lazy" tabindex="-1"></iframe>
+      </a>
+      <div class="card__body">
+        <p class="card__id">DESIGN A</p>
+        <h2 class="card__name">PURE &amp; TRUST</h2>
+        <p class="card__copy">もっと、自分を好きになる。</p>
+        <p class="card__concept">清潔感と安心感を重視した王道デザイン。初めて脱毛サロンを探す方にも、迷わず読める構成です。</p>
+        <ul class="chips" aria-label="カラーパレット">
+          <li class="chip" style="--sw:#FFFFFF"><i></i>#FFFFFF</li>
+          <li class="chip" style="--sw:#F8F7F3"><i></i>#F8F7F3</li>
+          <li class="chip" style="--sw:#D5C6B8"><i></i>#D5C6B8</li>
+          <li class="chip" style="--sw:#51443D"><i></i>#51443D</li>
+        </ul>
+        <ul class="feats">
+          <li><strong>見た目</strong>：自然光の差し込む空間、上品な明朝体</li>
+          <li><strong>動き</strong>：やわらかなフェードとパララックス</li>
+          <li><strong>隠しギミック</strong>：なし</li>
+        </ul>
+        <a class="card__btn" href="design-a/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+      </div>
+    </li>
+
+    <li class="card" style="--c-bg:#FAFAFD; --c-accent:#464957;">
+      <a class="card__preview" href="design-b/" tabindex="-1" aria-hidden="true">
+        <iframe src="design-b/" title="デザインBのプレビュー" loading="lazy" tabindex="-1"></iframe>
+      </a>
+      <div class="card__body">
+        <p class="card__id">DESIGN B</p>
+        <h2 class="card__name">SILENT TOUCH</h2>
+        <p class="card__copy">素肌から、もっと自由に。</p>
+        <p class="card__concept">透明感のある美しい3D体験。ガラスと光で、未来的なスキンケアブランドのような世界観をつくります。</p>
+        <ul class="chips" aria-label="カラーパレット">
+          <li class="chip" style="--sw:#FAFAFD"><i></i>#FAFAFD</li>
+          <li class="chip" style="--sw:#DDD6F0"><i></i>#DDD6F0</li>
+          <li class="chip" style="--sw:#CBD3DE"><i></i>#CBD3DE</li>
+          <li class="chip" style="--sw:#E4F0FA"><i></i>#E4F0FA</li>
+          <li class="chip" style="--sw:#464957"><i></i>#464957</li>
+        </ul>
+        <ul class="feats">
+          <li><strong>見た目</strong>：呼吸するように動く3Dの球体とガラスのカード</li>
+          <li><strong>動き</strong>：光の波紋、ゆっくり浮かぶカード</li>
+          <li><strong>隠しギミック</strong>：あり（内容は実際に探してみてください）</li>
+        </ul>
+        <a class="card__btn" href="design-b/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+      </div>
+    </li>
+
+    <li class="card" style="--c-bg:#FFF8F1; --c-accent:#4A3530;">
+      <a class="card__preview" href="design-c/" tabindex="-1" aria-hidden="true">
+        <iframe src="design-c/" title="デザインCのプレビュー" loading="lazy" tabindex="-1"></iframe>
+      </a>
+      <div class="card__body">
+        <p class="card__id">DESIGN C</p>
+        <h2 class="card__name">SOFT POP</h2>
+        <p class="card__copy">自分を好きになる、はじめの一歩。</p>
+        <p class="card__concept">はじめての方や学生さんが気軽に入れる、やわらかくポップなデザイン。まるい形とシール・テープの飾りで親しみやすさを出しています。</p>
+        <ul class="chips" aria-label="カラーパレット">
+          <li class="chip" style="--sw:#FFF8F1"><i></i>#FFF8F1</li>
+          <li class="chip" style="--sw:#FFE1D3"><i></i>#FFE1D3</li>
+          <li class="chip" style="--sw:#F4A07F"><i></i>#F4A07F</li>
+          <li class="chip" style="--sw:#FFE8A3"><i></i>#FFE8A3</li>
+          <li class="chip" style="--sw:#4A3530"><i></i>#4A3530</li>
+        </ul>
+        <ul class="feats">
+          <li><strong>見た目</strong>：まるいアーチの写真、シールやテープ、手描き風の線</li>
+          <li><strong>動き</strong>：ふわっと浮かぶ表示、色ちがいカードの口コミカルーセル</li>
+          <li><strong>隠しギミック</strong>：あり（内容は実際に探してみてください）</li>
+        </ul>
+        <a class="card__btn" href="design-c/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+      </div>
+    </li>
+          <li class="chip" style="--sw:#F19A88"><i></i>#F19A88</li>
+          <li class="chip" style="--sw:#FAF8F4"><i></i>#FAF8F4</li>
+          <li class="chip" style="--sw:#253332"><i></i>#253332</li>
+          <li class="chip" style="--sw:#D8E9E3"><i></i>#D8E9E3</li>
+        </ul>
+        <ul class="feats">
+          <li><strong>見た目</strong>：画面いっぱいの英字と、雑誌の誌面のようなレイアウト</li>
+          <li><strong>動き</strong>：スクロールに連動する文字、ページをめくるような切り替え</li>
+          <li><strong>隠しギミック</strong>：あり（内容は実際に探してみてください）</li>
+        </ul>
+        <a class="card__btn" href="design-c/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+      </div>
+    </li>
+
+    <li class="card" style="--c-bg:#F8F7F3; --c-accent:#51443D;">
+      <a class="card__preview" href="design-d/" tabindex="-1" aria-hidden="true">
+        <iframe src="design-d/" title="デザインDのプレビュー" loading="lazy" tabindex="-1"></iframe>
+      </a>
+      <div class="card__body">
+        <p class="card__id">DESIGN D</p>
+        <h2 class="card__name">EDITORIAL × PURE &amp; TRUST</h2>
+        <p class="card__copy">もっと、自分を好きになる。</p>
+        <p class="card__concept">大きな日本語の見出しと雑誌のような誌面を、A案の白・ベージュ・ブラウンの配色で。個性と安心感のあいだをねらった案です。</p>
+        <ul class="chips" aria-label="カラーパレット">
+          <li class="chip" style="--sw:#FFFFFF"><i></i>#FFFFFF</li>
+          <li class="chip" style="--sw:#F8F7F3"><i></i>#F8F7F3</li>
+          <li class="chip" style="--sw:#D5C6B8"><i></i>#D5C6B8</li>
+          <li class="chip" style="--sw:#51443D"><i></i>#51443D</li>
+        </ul>
+        <ul class="feats">
+          <li><strong>見た目</strong>：画面いっぱいの明朝体の見出しと写真を組み合わせた誌面</li>
+          <li><strong>動き</strong>：スクロール連動の文字、ページをめくるような切り替え、口コミのカルーセル</li>
+          <li><strong>隠しギミック</strong>：あり（内容は実際に探してみてください）</li>
+        </ul>
+        <a class="card__btn" href="design-d/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+      </div>
+    </li>
+  </ol>
+</main>
+
+<footer class="foot">
+  <div class="wrap">提案用モック — 正式公開時はこのページを非表示にし、選ばれたデザインをトップページとして公開します（assets/data.js の mock 設定で切り替え）。</div>
+</footer>
+
+<script>
+  // プレビューの縮小率をカード幅に合わせる
+  (function () {
+    var boxes = document.querySelectorAll('.card__preview');
+    function fit() { boxes.forEach(function (b) { b.style.setProperty('--s', (b.clientWidth / 1440).toFixed(4)); }); }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
+</script>
+<script src="assets/data.js"></script>
+<script src="assets/common.js"></script>
+</body>
+</html>

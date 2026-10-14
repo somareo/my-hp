@@ -1,0 +1,35 @@
+[
+  {
+    "date": "2026-10-14",
+    "macrostructure": "Split hero → scrapbook",
+    "theme": "custom",
+    "theme_axes": "light / rounded-sans / warm (apricot)",
+    "vibe": "soft pop scrapbook for first-timers and students",
+    "enrichment": "Unsplash placeholder photos + CSS/SVG stickers, tape, squiggle",
+    "nav": "N5 floating pill",
+    "footer": "Ft1 mast-headed",
+    "brief": "Salon Xavil · new Design C SOFT POP (replaces rejected editorial C)"
+  },
+  {
+    "date": "2026-10-14",
+    "macrostructure": "Marquee Hero",
+    "theme": "custom",
+    "theme_axes": "light / display-heavy (wide grotesk + black mincho) / warm-neutral (brown + beige)",
+    "vibe": "Design C layout in Design A colours",
+    "enrichment": "Unsplash placeholder photos (labelled 仮の写真) + hand-built SVG thread",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "brief": "Salon Xavil · Design D (C layout × A palette), requested by client"
+  },
+  {
+    "date": "2026-10-14",
+    "macrostructure": "Marquee Hero",
+    "theme": "custom",
+    "theme_axes": "light / display-heavy (wide grotesk + black mincho) / cool (teal) + warm (coral)",
+    "vibe": "beauty magazine issue you can unpick",
+    "enrichment": "Tier A CSS-art placeholder + hand-built SVG thread",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft5 statement",
+    "brief": "Salon Xavil · Design C UNLOCK YOURSELF (editorial, hidden thread gimmick)"
+  }
+]
