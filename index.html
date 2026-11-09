@@ -29,7 +29,7 @@
   :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
   .wrap { width: min(1360px, 100%); margin: 0 auto; padding-inline: var(--gutter); }
 
-  .top { padding: clamp(56px, 9vw, 120px) 0 clamp(40px, 6vw, 72px); }
+  .top { padding-block: clamp(56px, 9vw, 120px) clamp(40px, 6vw, 72px); }
   .top__title {
     margin: 0 0 18px;
     font: 700 clamp(28px, 4.6vw, 60px)/1.15 var(--sans);
@@ -85,8 +85,8 @@
 <main>
   <header class="top wrap">
     <h1 class="top__title">SALON XAVIL <span>— DESIGN PROPOSALS</span></h1>
-    <p class="top__sub">4つのデザインから、理想のSalon Xavilを。</p>
-    <p class="top__note">各デザインは実際に操作できるモックです。店舗写真・オーナー様の文章・よくあるご質問の一部の回答は仮の内容で、ご確認いただいた後に差し替えます。料金・住所・LINE予約先は全案共通で、確定情報を掲載しています。</p>
+    <p class="top__sub">4パターン作ってみました。見比べてみてください。</p>
+    <p class="top__note">どれも実際にスクロールしたり、タップしたりして触れます。<br>写真はまだ仮のものです（お店の写真をもらえたら差し替えます）。オーナーさんの紹介文も下書きなので、あとで見てもらえると助かります。<br>料金・住所・LINEはどの案も本物の情報です。</p>
   </header>
 
   <ol class="cards wrap">
@@ -98,7 +98,7 @@
         <p class="card__id">DESIGN A</p>
         <h2 class="card__name">PURE &amp; TRUST</h2>
         <p class="card__copy">もっと、自分を好きになる。</p>
-        <p class="card__concept">清潔感と安心感を重視した王道デザイン。初めて脱毛サロンを探す方にも、迷わず読める構成です。</p>
+        <p class="card__concept">清潔感・安心感重視の王道パターン。はじめて脱毛サロンを探す人でも迷わず読めるようにしてます。</p>
         <ul class="chips" aria-label="カラーパレット">
           <li class="chip" style="--sw:#FFFFFF"><i></i>#FFFFFF</li>
           <li class="chip" style="--sw:#F8F7F3"><i></i>#F8F7F3</li>
@@ -122,7 +122,7 @@
         <p class="card__id">DESIGN B</p>
         <h2 class="card__name">SILENT TOUCH</h2>
         <p class="card__copy">体毛の悩みから、もっと自由に。</p>
-        <p class="card__concept">透明感のある美しい3D体験。ガラスと光で、静かで洗練された、未来的なサロンの世界観をつくります。</p>
+        <p class="card__concept">3Dで動く、透明感のある案。ガラスと光っぽい表現で、ちょっと未来的な雰囲気にしてます。</p>
         <ul class="chips" aria-label="カラーパレット">
           <li class="chip" style="--sw:#FAFAFD"><i></i>#FAFAFD</li>
           <li class="chip" style="--sw:#DDD6F0"><i></i>#DDD6F0</li>
@@ -133,7 +133,7 @@
         <ul class="feats">
           <li><strong>見た目</strong>：呼吸するように動く3Dの球体とガラスのカード</li>
           <li><strong>動き</strong>：光の波紋、ゆっくり浮かぶカード</li>
-          <li><strong>隠しギミック</strong>：あり（内容は実際に探してみてください）</li>
+          <li><strong>隠しギミック</strong>：あり（どこにあるかは探してみてください）</li>
         </ul>
         <a class="card__btn" href="design-b/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
       </div>
@@ -147,7 +147,7 @@
         <p class="card__id">DESIGN C</p>
         <h2 class="card__name">HOTEL SPA</h2>
         <p class="card__copy">自分を慈しむ、上質なひととき。</p>
-        <p class="card__concept">白とシャンパンゴールドで仕立てた、ホテルのスパのような綺麗系デザイン。細い金の線と明朝体で、静かな特別感を伝えます。</p>
+        <p class="card__concept">ホテルのスパっぽい綺麗系。白とシャンパンゴールドに細い金の線と明朝体で、ちょっと特別な感じを出してます。</p>
         <ul class="chips" aria-label="カラーパレット">
           <li class="chip" style="--sw:#FFFFFF"><i></i>#FFFFFF</li>
           <li class="chip" style="--sw:#FAF7F2"><i></i>#FAF7F2</li>
@@ -158,7 +158,7 @@
         <ul class="feats">
           <li><strong>見た目</strong>：額装した写真、金の細い線、ホテルのメニュー表のような料金表</li>
           <li><strong>動き</strong>：静かに浮かび上がる表示、口コミのカルーセル</li>
-          <li><strong>隠しギミック</strong>：あり（内容は実際に探してみてください）</li>
+          <li><strong>隠しギミック</strong>：あり（どこにあるかは探してみてください）</li>
         </ul>
         <a class="card__btn" href="design-c/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
       </div>
@@ -171,7 +171,7 @@
         <p class="card__id">DESIGN D</p>
         <h2 class="card__name">EDITORIAL × PURE &amp; TRUST</h2>
         <p class="card__copy">もっと、自分を好きになる。</p>
-        <p class="card__concept">大きな日本語の見出しと雑誌のような誌面を、A案の白・ベージュ・ブラウンの配色で。個性と安心感のあいだをねらった案です。</p>
+        <p class="card__concept">雑誌っぽく大きな見出しを使った案。色はA案と同じ白・ベージュ・ブラウン。個性と安心感のちょうど間くらいをねらってます。</p>
         <ul class="chips" aria-label="カラーパレット">
           <li class="chip" style="--sw:#FFFFFF"><i></i>#FFFFFF</li>
           <li class="chip" style="--sw:#F8F7F3"><i></i>#F8F7F3</li>
@@ -181,7 +181,7 @@
         <ul class="feats">
           <li><strong>見た目</strong>：画面いっぱいの明朝体の見出しと写真を組み合わせた誌面</li>
           <li><strong>動き</strong>：スクロール連動の文字、ページをめくるような切り替え、口コミのカルーセル</li>
-          <li><strong>隠しギミック</strong>：あり（内容は実際に探してみてください）</li>
+          <li><strong>隠しギミック</strong>：あり（どこにあるかは探してみてください）</li>
         </ul>
         <a class="card__btn" href="design-d/">このデザインを見る<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
       </div>
@@ -190,7 +190,7 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap">提案用モック — 正式公開時はこのページを非表示にし、選ばれたデザインをトップページとして公開します（assets/data.js の mock 設定で切り替え）。</div>
+  <div class="wrap">※このページは見比べる用です。本番では出しません。決まった案をトップページにします。</div>
 </footer>
 
 <script>
