@@ -44,6 +44,7 @@ window.XAVIL = {
   price: {
     menu: '全身脱毛',
     unit: '1回',
+    includes: '顔・VIOも含む全身／1回 約1時間',
     items: [
       { label: '社会人', en: 'Adult', price: 9000 },
       { label: '学生', en: 'Student', price: 8000 }

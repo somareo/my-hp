@@ -182,7 +182,7 @@ html { scrollbar-color: var(--teal) var(--paper); }
 .hero__insert .photo { object-position: 50% 30%; }
 /* 大きな英字が重なる下半分を明るくして、文字を読みやすくする */
 .hero__insert-tilt::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(248, 247, 243, 0) 30%, rgba(248, 247, 243, .78) 62%, rgba(248, 247, 243, .9)); }
-.hero__insert .ph-label { color: var(--teal); }
+.hero__insert .ph-label { color: var(--teal); background: rgba(248, 247, 243, .88); padding: 3px 7px; }
 
 .hero__tag {
   position: absolute; z-index: 2; text-decoration: none;
@@ -296,6 +296,8 @@ html { scrollbar-color: var(--teal) var(--paper); }
   margin: 0; font: 800 clamp(34px, 3.8vw, 52px)/1 var(--display); font-variation-settings: 'wdth' 104;
   font-variant-numeric: tabular-nums lining-nums; letter-spacing: -.02em; color: var(--teal);
 }
+.price__inc { margin: 18px 0 0; font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: .04em; }
+.reserve a:not(.btn) { color: inherit; text-decoration: underline; text-underline-offset: .25em; }
 .price__row dd small { font: 700 14px var(--sans); margin-left: .25em; letter-spacing: .04em; }
 
 /* REVIEWS：カルーセル（1件ずつ大きく。次の1件が少し見える） */
