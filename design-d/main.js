@@ -23,6 +23,52 @@
     </li>`);
   window.XUI.chat($('[data-faq]'));
 
+  /* ---------- よくある質問：途中まで表示して「続きを読む」 ---------- */
+  (function faqMore() {
+    const chatEl = $('[data-faq]');
+    if (!chatEl) return;
+    const box = document.createElement('div');
+    box.className = 'faq__more';
+    chatEl.parentNode.insertBefore(box, chatEl);
+    box.appendChild(chatEl);
+    chatEl.id = chatEl.id || 'faq-chat';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'faq__toggle';
+    btn.setAttribute('aria-controls', chatEl.id);
+    box.appendChild(btn);
+
+    const peek = () => parseFloat(getComputedStyle(box).getPropertyValue('--faq-peek')) || 760;
+    const label = (open) => {
+      btn.setAttribute('aria-expanded', String(open));
+      btn.innerHTML = `${open ? '閉じる' : '続きを読む'}<span class="faq__toggle-icon" aria-hidden="true"></span>`;
+    };
+    const setOpen = (open, { scroll = false } = {}) => {
+      if (open) {
+        chatEl.style.maxHeight = peek() + 'px';
+        box.classList.add('is-animating');
+        box.classList.remove('is-collapsed');
+        requestAnimationFrame(() => { chatEl.style.maxHeight = chatEl.scrollHeight + 'px'; });
+        const done = () => { chatEl.style.maxHeight = ''; box.classList.remove('is-animating'); chatEl.removeEventListener('transitionend', done); };
+        if (reduced) done(); else chatEl.addEventListener('transitionend', done);
+      } else {
+        chatEl.style.maxHeight = '';
+        box.classList.add('is-collapsed');
+        if (scroll) $('#faq').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+      }
+      label(open);
+    };
+
+    // 全部が収まる長さなら折りたたまない
+    if (chatEl.scrollHeight <= peek() + 120) { btn.remove(); return; }
+    setOpen(false);
+    btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true', { scroll: true }));
+    // カテゴリーのボタンで隠れた部分に飛ぶときは先に開く
+    chatEl.addEventListener('click', (e) => {
+      if (e.target.closest('.chat-nav__chip') && box.classList.contains('is-collapsed')) setOpen(true);
+    });
+  })();
+
   /* ---------- 口コミ：カルーセル（共通部品） ---------- */
   window.XUI.carousel($('[data-rv]'));
 
