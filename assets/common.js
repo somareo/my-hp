@@ -111,6 +111,20 @@
     document.body.appendChild(a);
   }
 
+  // スマホ下の固定予約ボタン：ヒーローや予約セクションのLINEボタンが見えている間は隠す（二重表示を防ぐ）
+  function fixedCta() {
+    if (!document.querySelector('.fixed-cta')) return;
+    const targets = ['.hero__btns', '#reservation'].map((s) => document.querySelector(s)).filter(Boolean);
+    const body = document.body;
+    if (!targets.length || !('IntersectionObserver' in window)) { body.classList.add('cta-on'); return; }
+    const visible = new Set();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      body.classList.toggle('cta-on', visible.size === 0);
+    });
+    targets.forEach((t) => io.observe(t));
+  }
+
   // よくあるご質問：チャットの会話形式で描画
   // お客様の質問は右、サロンの回答は左の吹き出し。カテゴリーは会話の区切りとして表示
   function chat(el) {
@@ -250,6 +264,7 @@
     reveal();
     jsonLd();
     mockNav();
+    fixedCta();
     const y = document.querySelector('[data-year]');
     if (y) y.textContent = new Date().getFullYear();
   });
